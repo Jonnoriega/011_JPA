@@ -9,9 +9,12 @@
 		
 		<class>com.curso.domain.Pais</class>
 		<!--  class>com.curso.domain.onetoone.Customer</class>
-		<class>com.curso.domain.onetoone.Record</class-->
+		<class>com.curso.domain.onetoone.Record</class
 		<class>com.curso.domain.onetoonebidireccional.Customer</class>
-		<class>com.curso.domain.onetoonebidireccional.Record</class>
+		<class>com.curso.domain.onetoonebidireccional.Record</class-->
+		
+		<class>com.curso.domain.onetomany.Orders</class>
+		<class>com.curso.domain.onetomany.Customer</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />

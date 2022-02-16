@@ -6,10 +6,17 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="COUNTRIES")
+@NamedQueries({
+    @NamedQuery(name = "Pais.findAll", query = "SELECT p FROM Pais p"),
+    @NamedQuery(name = "Pais.findByRegion", query = "SELECT p FROM Pais p where p.idRegion=:idReg")
+    
+})
 public class Pais implements Serializable{
 
 	private static final long serialVersionUID = 1L;

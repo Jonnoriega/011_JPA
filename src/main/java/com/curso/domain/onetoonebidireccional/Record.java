@@ -12,10 +12,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-/**
- *
- * @author bolea PROGRAMIA
- */
+
 @Entity
 @Table(name = "RECORD")
 @NamedQueries({
