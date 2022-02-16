@@ -37,14 +37,51 @@ public class Application
 		// em obtien de la base de datos los datos del pais JU
 		// me devuelve el objeto 
 		// y sigue sincronizado cno la bd
-		em.remove(pAborrar);
+		if(pAborrar != null) {
+			em.remove(pAborrar);
+		}
+
+		em.getTransaction().commit();
+		
+		//MODIFICAR
+		
+		//MODO 1  - find
+		em.getTransaction().begin();
+		//busco el pais a modificar  
+		System.out.println(".... busco jp");
+		Pais japon = em.find(Pais.class, "JP");
+		System.out.println(".... busco jp otra vez");
+		japon = em.find(Pais.class, "JP");
+		System.out.println("modificar ");
+		//cambio valores
+		japon.setNombrePais("Es Japón2");
+		//commit sincronizara los datos obj RAM con los datos TABLA
+		em.getTransaction().commit();
+	
+		//MODO 2  - merge
+		em.getTransaction().begin();
+		Pais pModificar = new Pais("JP","Japan**",3);
+		
+		//modo find
+		//Pais pBD = em.find(Pais.class, pModificar.getCodigoPais());
+		//pBD.setIdRegion(pModificar.getIdRegion());
+		//pBD.setNombrePais(pModificar.getNombrePais());
+		//mas para todos los campos de la clase Pais
+		
+		Pais pBD  = em.merge(pModificar);
+		// aqui pModificar sigue no sincronizado con la bd
+		// aqui pBD esta gestionado por em y sincronizado con la bd
+		
+		pBD.setNombrePais("OTRO"); //si cambia bd
+		
+		pModificar.setNombrePais("OTRO"); // no cambia bd
+		
 		
 		em.getTransaction().commit();
 		
+	
 		
-		
-		
-		
+	
 		
 		
 		

@@ -20,6 +20,8 @@ public class Pais implements Serializable{
 	private String codigoPais;  //PK
 	@Column(name="COUNTRY_NAME")
 	private String nombrePais;
+	
+	
 	@Column(name="REGION_ID")
 	private Integer idRegion;
 	
